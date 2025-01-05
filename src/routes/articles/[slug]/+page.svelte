@@ -4,11 +4,26 @@
 </script>
 
 <svelte:head>
-	<title>{data.article?.title}</title>
+	<title>{data.article.title}</title>
 	<meta name="description" content="投稿詳細ページです" />
 </svelte:head>
 
-<main>
-	<h1>{data.article?.title}</h1>
-	<div>{@html data.article?.body}</div>
-</main>
+<div class="mx-auto my-5 max-w-5xl">
+	<a href="/articles" class="flex items-center text-opacity-80 hover:underline">
+		← 記事一覧に戻る</a
+	>
+</div>
+
+<article class="mx-auto max-w-5xl p-4">
+	<div class="text-center">
+		<h1 class="mt-4 text-2xl font-bold md:text-4xl">
+			{data.article.title}
+		</h1>
+		<time class="mt-2 block text-sm text-gray-500" datetime={data.article._sys.createdAt}>
+			{data.article._sys.createdAt}
+		</time>
+	</div>
+	<div class="mt-8 rounded-lg bg-white px-8 py-4 shadow-md">
+		{@html data.article.body}
+	</div>
+</article>
