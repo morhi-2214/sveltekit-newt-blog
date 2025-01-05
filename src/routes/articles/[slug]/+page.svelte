@@ -9,9 +9,7 @@
 </svelte:head>
 
 <div class="mx-auto my-5 max-w-5xl">
-	<a href="/articles" class="flex items-center text-opacity-80 hover:underline">
-		← 記事一覧に戻る</a
-	>
+	<a href="/" class="flex items-center text-opacity-80 hover:underline"> ← 記事一覧に戻る</a>
 </div>
 
 <article class="mx-auto max-w-5xl p-4">
