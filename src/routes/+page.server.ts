@@ -7,7 +7,7 @@ export const load: PageServerLoad = async () => {
 		appUid: 'blog',
 		modelUid: 'article',
 		query: {
-			select: ['_id', 'title', 'slug', 'body']
+			select: ['_id', '_sys', 'title', 'slug', 'body']
 		}
 	});
 
