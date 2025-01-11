@@ -2,10 +2,11 @@ import { newtClient } from '$lib/server/newt';
 import { error } from '@sveltejs/kit';
 import type { Article } from '$lib/server/newt';
 import type { PageServerLoad } from './$types';
+import { NEWT_APP_UID } from '$env/static/private';
 
 export const load: PageServerLoad = async ({ params }) => {
 	const article = await newtClient.getFirstContent<Article>({
-		appUid: 'blog',
+		appUid: NEWT_APP_UID,
 		modelUid: 'article',
 		query: {
 			slug: params.slug,
