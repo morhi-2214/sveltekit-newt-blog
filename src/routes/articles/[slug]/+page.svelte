@@ -1,6 +1,10 @@
 <script lang="ts">
+	import Markdown from 'svelte-exmarkdown';
+	import { gfmPlugin } from 'svelte-exmarkdown/gfm';
 	import type { PageData } from './$types';
+
 	export let data: PageData;
+	const plugins = [gfmPlugin()];
 </script>
 
 <svelte:head>
@@ -22,6 +26,6 @@
 		</time>
 	</div>
 	<div class="mt-8 rounded-lg bg-white px-8 py-4 shadow-md">
-		{@html data.article.body}
+		<Markdown md={data.article.body} {plugins} />
 	</div>
 </article>
