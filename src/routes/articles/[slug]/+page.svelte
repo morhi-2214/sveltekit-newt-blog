@@ -2,7 +2,6 @@
 	import Markdown from 'svelte-exmarkdown';
 	import { gfmPlugin } from 'svelte-exmarkdown/gfm';
 	import type { PageData } from './$types';
-	import 'zenn-content-css';
 
 	export let data: PageData;
 	const plugins = [gfmPlugin()];
@@ -26,7 +25,7 @@
 			{data.article._sys.createdAt}
 		</time>
 	</div>
-	<div class="znc mt-8 rounded-lg bg-white px-8 py-4 shadow-md">
+	<div class="prose mx-auto mt-8 w-screen rounded-lg bg-white px-8 py-4">
 		<Markdown md={data.article.body} {plugins} />
 	</div>
 </article>
