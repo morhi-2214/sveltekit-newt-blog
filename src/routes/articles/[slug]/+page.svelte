@@ -22,5 +22,7 @@
 			{data.article._sys.createdAt}
 		</time>
 	</div>
-	<div class="prose mx-auto mt-8 w-screen rounded-lg bg-white px-8 py-4"></div>
+	<div class="mx-auto mt-8 w-screen rounded-lg bg-white px-8 py-4">
+		{@html data.article.body}
+	</div>
 </article>
