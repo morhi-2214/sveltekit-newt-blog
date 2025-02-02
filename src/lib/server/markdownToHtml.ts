@@ -40,11 +40,13 @@ export const markdownToHtml = async (
 						{
 							type: 'element',
 							tagName: 'div',
-							properties: {},
+							properties: {
+								className: ['text-lg', 'font-bold']
+							},
 							children: [
 								{
 									type: 'text',
-									value: '[toc]'
+									value: '目次'
 								}
 							]
 						},
@@ -52,7 +54,7 @@ export const markdownToHtml = async (
 							type: 'element',
 							tagName: 'div',
 							properties: {
-								className: 'markdown-body'
+								className: ['markdown-body', 'mb-8']
 							},
 							children: [...node.children]
 						}
