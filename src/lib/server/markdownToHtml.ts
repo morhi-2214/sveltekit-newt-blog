@@ -1,6 +1,5 @@
 import { unified } from 'unified';
-// remark-link-cardの型定義が存在しないので対処
-import remarkLinkCard from 'remark-link-card';
+import remarkLinkCard from 'remark-link-card-plus';
 import markdown from 'remark-parse';
 import remark2rehype from 'remark-rehype';
 import remarkGfm from 'remark-gfm';
@@ -22,7 +21,10 @@ export const markdownToHtml = async (
 ): Promise<string> => {
 	let processor = unified()
 		.use(markdown)
-		.use(remarkLinkCard)
+		.use(remarkLinkCard, {
+			cache: true, // 画像のキャッシュ
+			shortenUrl: true // リンクカード内のURLのホスト名のみを表示
+		})
 		.use(remarkGfm)
 		.use(remark2rehype, { allowDangerousHtml: true })
 		.use(rehypeCodeTitles);
