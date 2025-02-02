@@ -32,8 +32,9 @@ export const markdownToHtml = async (
 	if (toc) {
 		processor = processor
 			.use(rehypeSlug)
+			/** 目次を挿入 */
 			.use(rehypeAutoLinkHeadings, {
-				// 目次を挿入する要素を設定
+				// 挿入の基準となる要素を設定
 				content(node) {
 					return [
 						{
@@ -82,6 +83,7 @@ export const markdownToHtml = async (
 	}
 
 	processor = processor
+		/** コードブロックのシンタックスハイライト */
 		.use(rehypePrettyCode, {
 			transformers: [
 				/** コピーボタンを追加 */
@@ -91,7 +93,7 @@ export const markdownToHtml = async (
 				})
 			]
 		})
-		.use(rehypePrettyCode)
+		/** MD=>HTMLへの変換 */
 		.use(html, {
 			allowDangerousHtml: true
 			// eslint-disable-next-line @typescript-eslint/no-explicit-any
