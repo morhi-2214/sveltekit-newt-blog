@@ -1,3 +1,13 @@
 @import 'tailwindcss/base';
 @import 'tailwindcss/components';
 @import 'tailwindcss/utilities';
+
+pre {
+	overflow-x: auto;
+	padding: 1rem 0;
+	border-radius: 5px;
+}
+
+pre [data-line] {
+	padding: 0 1rem;
+}

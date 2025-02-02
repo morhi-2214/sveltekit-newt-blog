@@ -5,8 +5,7 @@ import remark2rehype from 'remark-rehype';
 import remarkGfm from 'remark-gfm';
 import html from 'rehype-stringify';
 import rehypeCodeTitles from 'rehype-code-titles';
-// TODO: rehype-pretty-codeを使用
-// import rehypePrettyCode from 'rehype-pretty-code';
+import rehypePrettyCode from 'rehype-pretty-code';
 import rehypeSlug from 'rehype-slug';
 import rehypeToc from '@atomictech/rehype-toc';
 import rehypeAutoLinkHeadings from 'rehype-autolink-headings';
@@ -77,8 +76,9 @@ export const markdownToHtml = async (
 					if (toc.properties) toc.properties['aria-labelledby'] = 'toc-title';
 					return toc;
 				}
-				// eslint-disable-next-line @typescript-eslint/no-explicit-any
-			}) as any;
+			})
+			// eslint-disable-next-line @typescript-eslint/no-explicit-any
+			.use(rehypePrettyCode) as any;
 	}
 
 	processor = processor.use(html, { allowDangerousHtml: true });
