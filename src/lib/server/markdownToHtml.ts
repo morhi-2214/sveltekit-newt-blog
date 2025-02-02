@@ -6,6 +6,7 @@ import remarkGfm from 'remark-gfm';
 import html from 'rehype-stringify';
 import rehypeCodeTitles from 'rehype-code-titles';
 import rehypePrettyCode from 'rehype-pretty-code';
+import { transformerCopyButton } from '@rehype-pretty/transformers';
 import rehypeSlug from 'rehype-slug';
 import rehypeToc from '@atomictech/rehype-toc';
 import rehypeAutoLinkHeadings from 'rehype-autolink-headings';
@@ -44,8 +45,7 @@ export const markdownToHtml = async (
 							value: '[toc]'
 						}
 					]
-					// eslint-disable-next-line @typescript-eslint/no-explicit-any
-				} as any;
+				};
 				const body = {
 					type: 'element',
 					tagName: 'div',
@@ -53,8 +53,7 @@ export const markdownToHtml = async (
 						className: 'markdown-body'
 					},
 					children: [...tree.children]
-					// eslint-disable-next-line @typescript-eslint/no-explicit-any
-				} as any;
+				};
 				tree.children = [toc, body];
 			})
 			.use(rehypeToc, {
@@ -76,12 +75,20 @@ export const markdownToHtml = async (
 					if (toc.properties) toc.properties['aria-labelledby'] = 'toc-title';
 					return toc;
 				}
-			})
-			// eslint-disable-next-line @typescript-eslint/no-explicit-any
-			.use(rehypePrettyCode) as any;
+			});
 	}
 
-	processor = processor.use(html, { allowDangerousHtml: true });
+	processor = processor
+		.use(rehypePrettyCode, {
+			transformers: [
+				/** コピーボタンを追加 */
+				transformerCopyButton({
+					visibility: 'always',
+					feedbackDuration: 3_000
+				})
+			]
+		})
+		.use(html, { allowDangerousHtml: true });
 
 	const { value } = await processor.process(input);
 	return value.toString();
