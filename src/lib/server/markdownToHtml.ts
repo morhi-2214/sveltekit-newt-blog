@@ -22,7 +22,7 @@ export const markdownToHtml = async (
 	let processor = unified()
 		.use(markdown)
 		.use(remarkLinkCard, {
-			cache: true, // 画像のキャッシュ
+			// cache: true, // 画像のキャッシュ
 			shortenUrl: true // リンクカード内のURLのホスト名のみを表示
 		})
 		.use(remarkGfm)
