@@ -32,29 +32,31 @@ export const markdownToHtml = async (
 	if (toc) {
 		processor = processor
 			.use(rehypeSlug)
-			.use(rehypeAutoLinkHeadings)
-			// 目次を挿入する要素を設定
-			.use(() => (tree) => {
-				const toc = {
-					type: 'element',
-					tagName: 'div',
-					properties: {},
-					children: [
+			.use(rehypeAutoLinkHeadings, {
+				// 目次を挿入する要素を設定
+				content(node) {
+					return [
 						{
-							type: 'text',
-							value: '[toc]'
+							type: 'element',
+							tagName: 'div',
+							properties: {},
+							children: [
+								{
+									type: 'text',
+									value: '[toc]'
+								}
+							]
+						},
+						{
+							type: 'element',
+							tagName: 'div',
+							properties: {
+								className: 'markdown-body'
+							},
+							children: [...node.children]
 						}
-					]
-				};
-				const body = {
-					type: 'element',
-					tagName: 'div',
-					properties: {
-						className: 'markdown-body'
-					},
-					children: [...tree.children]
-				};
-				tree.children = [toc, body];
+					];
+				}
 			})
 			.use(rehypeToc, {
 				placeholder: '[toc]',
@@ -75,7 +77,8 @@ export const markdownToHtml = async (
 					if (toc.properties) toc.properties['aria-labelledby'] = 'toc-title';
 					return toc;
 				}
-			});
+				// eslint-disable-next-line @typescript-eslint/no-explicit-any
+			}) as any;
 	}
 
 	processor = processor
@@ -88,7 +91,11 @@ export const markdownToHtml = async (
 				})
 			]
 		})
-		.use(html, { allowDangerousHtml: true });
+		.use(rehypePrettyCode)
+		.use(html, {
+			allowDangerousHtml: true
+			// eslint-disable-next-line @typescript-eslint/no-explicit-any
+		}) as any;
 
 	const { value } = await processor.process(input);
 	return value.toString();
