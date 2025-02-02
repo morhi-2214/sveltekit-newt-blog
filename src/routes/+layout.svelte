@@ -3,6 +3,6 @@
 	let { children } = $props();
 </script>
 
-<div class="px-4">
+<div class="max-w-screen px-4">
 	{@render children()}
 </div>

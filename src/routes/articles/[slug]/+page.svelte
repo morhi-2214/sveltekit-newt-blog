@@ -9,11 +9,11 @@
 	<meta name="description" content="投稿詳細ページです" />
 </svelte:head>
 
-<div class="mx-auto my-5 max-w-5xl">
+<div class="mx-auto my-5">
 	<a href="/" class="flex items-center text-opacity-80 hover:underline"> ← 記事一覧に戻る</a>
 </div>
 
-<article class="mx-auto max-w-5xl p-4">
+<article class="mx-auto p-4">
 	<div class="text-center">
 		<h1 class="mt-4 text-2xl font-bold md:text-4xl">
 			{data.article.title}
@@ -22,7 +22,7 @@
 			{data.article._sys.createdAt}
 		</time>
 	</div>
-	<div class="mx-auto mt-8 w-screen rounded-lg bg-white px-8 py-4">
+	<div class="mx-auto mt-8 rounded-lg bg-white px-8 py-4">
 		{@html data.article.body}
 	</div>
 </article>
