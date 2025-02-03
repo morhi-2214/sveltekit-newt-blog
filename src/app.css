@@ -11,7 +11,7 @@ pre {
 }
 
 pre [data-line] {
-	padding: 0 1rem;
+	padding: 2px 1rem;
 }
 
 /* remarkLinkCard */
@@ -56,6 +56,8 @@ pre [data-line] {
 	@apply !my-0 h-full w-full object-cover;
 }
 
+/* コードブロックのタイトル */
+
 .rehype-code-title {
 	display: inline-block;
 	padding: 7px 20px 0;
@@ -64,6 +66,8 @@ pre [data-line] {
 	border-top-left-radius: 5px;
 	border-top-right-radius: 5px;
 }
+
+/* 行番号の追加 */
 
 code[data-line-numbers] {
 	counter-reset: line;
@@ -77,4 +81,9 @@ code[data-line-numbers] > [data-line]::before {
 	text-align: right;
 	content: counter(line);
 	counter-increment: line;
+}
+
+/* コードハイライティング */
+[data-highlighted-line] {
+	@apply !border-red-950 !bg-red-950;
 }
