@@ -61,6 +61,20 @@ pre [data-line] {
 	padding: 7px 20px 0;
 	background-color: #22272e;
 	color: white;
-	border-top-left-radius: 10px;
-	border-top-right-radius: 10px;
+	border-top-left-radius: 5px;
+	border-top-right-radius: 5px;
+}
+
+code[data-line-numbers] {
+	counter-reset: line;
+}
+
+code[data-line-numbers] > [data-line]::before {
+	display: inline-block;
+	width: 12px;
+	margin-right: 1rem;
+	color: gray;
+	text-align: right;
+	content: counter(line);
+	counter-increment: line;
 }
