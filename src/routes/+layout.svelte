@@ -1,8 +1,15 @@
 <script lang="ts">
 	import '../app.css';
+	import Header from './Header.svelte';
+	import Footer from './Footer.svelte';
+
 	let { children } = $props();
 </script>
 
-<div class="max-w-screen px-4">
-	{@render children()}
+<div class="flex min-h-screen flex-col">
+	<Header />
+	<main class="flex-1 px-4">
+		{@render children()}
+	</main>
+	<Footer />
 </div>
