@@ -1,38 +1,58 @@
-# sv
+# SvelteKit Newt Blog
 
-Everything you need to build a Svelte project, powered by [`sv`](https://github.com/sveltejs/cli).
+NewtとSvelteKitを使用したブログサイトです。
 
-## Creating a project
+## 機能
 
-If you're seeing this, you've probably already done this step. Congrats!
+- Markdownコンテンツのレンダリング
+- シンタックスハイライト付きコードブロック
+- コードブロックのコピーボタン
+- 目次の自動生成
+- リンクカードの表示
+
+## 技術スタック
+
+- [SvelteKit](https://kit.svelte.dev/)
+- [Newt](https://www.newt.so/) (ヘッドレスCMS)
+- [TailwindCSS](https://tailwindcss.com/)
+- [unified](https://unifiedjs.com/) (Markdownパーサー)
+- [rehype](https://github.com/rehypejs/rehype) / [remark](https://github.com/remarkjs/remark) (Markdownプラグイン)
+
+## セットアップ
+
+1. 環境変数の設定:
 
 ```bash
-# create a new project in the current directory
-npx sv create
-
-# create a new project in my-app
-npx sv create my-app
+NEWT_SPACE_UID=your_space_uid
+NEWT_CDN_API_TOKEN=your_api_token
+NEWT_APP_UID=your_app_uid
 ```
 
-## Developing
+2. 依存パッケージのインストール:
 
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
+```bash
+bash
+npm install
+```
+
+3. 開発サーバーの起動:
 
 ```bash
 npm run dev
-
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
 ```
 
-## Building
-
-To create a production version of your app:
+## デプロイ
 
 ```bash
 npm run build
 ```
 
-You can preview the production build with `npm run preview`.
+## テスト
 
-> To deploy your app, you may need to install an [adapter](https://svelte.dev/docs/kit/adapters) for your target environment.
+```bash
+npm run test
+```
+
+## ライセンス
+
+MIT
