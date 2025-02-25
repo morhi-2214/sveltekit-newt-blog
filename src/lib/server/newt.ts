@@ -44,9 +44,9 @@ export interface Article {
 		title: string;
 		altText: string;
 		description: string;
-		author: string;
-		tags: string[];
 	};
+	author: Author;
+	tags: Tag[];
 }
 
 export interface Author {
