@@ -1,5 +1,6 @@
 <script lang="ts">
 	import type { PageData } from './$types';
+	import { formatDate } from '$lib/utils/date';
 
 	export let data: PageData;
 </script>
@@ -19,7 +20,7 @@
 			{data.article.title}
 		</h1>
 		<time class="mt-2 block text-sm text-gray-500" datetime={data.article._sys.createdAt}>
-			{data.article._sys.createdAt}
+			{formatDate(new Date(data.article._sys.createdAt), 'YYYY/M/D')}
 		</time>
 	</div>
 	<div class="mx-auto mt-8 rounded-lg bg-white px-8 py-4">

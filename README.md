@@ -9,6 +9,7 @@ NewtとSvelteKitを使用したブログサイトです。
 - コードブロックのコピーボタン
 - 目次の自動生成
 - リンクカードの表示
+- 日付の日本語フォーマット
 
 ## 技術スタック
 
@@ -17,6 +18,7 @@ NewtとSvelteKitを使用したブログサイトです。
 - [TailwindCSS](https://tailwindcss.com/)
 - [unified](https://unifiedjs.com/) (Markdownパーサー)
 - [rehype](https://github.com/rehypejs/rehype) / [remark](https://github.com/remarkjs/remark) (Markdownプラグイン)
+- [Tempo](https://tempo.formkit.com/) (日付フォーマット)
 
 ## セットアップ
 
@@ -31,7 +33,6 @@ NEWT_APP_UID=your_app_uid
 2. 依存パッケージのインストール:
 
 ```bash
-bash
 npm install
 ```
 
@@ -39,6 +40,19 @@ npm install
 
 ```bash
 npm run dev
+```
+
+## 使用方法
+
+### 日付フォーマット
+
+基本的にフォーマットはutilsを経由して行うようにする
+
+```typescript
+import { formatDate } from '$lib/utils/date';
+
+// 2024/3/21
+const date = formatDate('2024-03-21T12:34:56', 'YYYY/M/D');
 ```
 
 ## デプロイ
