@@ -11,10 +11,10 @@
 
 <a
 	href="/articles/{article.slug}"
-	class="group flex overflow-hidden rounded-lg bg-white shadow-md transition duration-300 ease-in-out hover:shadow-lg"
+	class="group flex flex-col overflow-hidden rounded-lg bg-white shadow-md transition duration-300 ease-in-out hover:shadow-lg"
 >
 	{#if article.coverImage}
-		<div class="relative aspect-square w-32 shrink-0 overflow-hidden sm:w-48">
+		<div class="relative aspect-video w-full overflow-hidden">
 			<img
 				src={article.coverImage.src}
 				alt={article.coverImage.altText}
@@ -37,7 +37,7 @@
 				</div>
 			{/if}
 		</div>
-		<time class="mt-2 block text-sm text-gray-500" datetime={article._sys.createdAt}>
+		<time class="mt-4 block text-sm text-gray-500" datetime={article._sys.createdAt}>
 			{formatDate(new Date(article._sys.createdAt), 'YYYY/M/D')}
 		</time>
 	</div>
