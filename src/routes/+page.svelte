@@ -2,6 +2,7 @@
 	import type { PageData } from './$types';
 	import Card from './Card.svelte';
 	import Profile from './Profile.svelte';
+	import Pagination from './Pagination.svelte';
 
 	export let data: PageData;
 </script>
@@ -20,6 +21,7 @@
 					<Card {article} />
 				{/each}
 			</ul>
+			<Pagination totalPages={data.totalPages} currentPage={data.currentPage} />
 		</main>
 		{#if data.author && data.author._id}
 			<div class="lg:w-72">

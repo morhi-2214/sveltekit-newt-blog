@@ -8,7 +8,7 @@
 
 <div class="flex min-h-screen flex-col">
 	<Header />
-	<main class="flex-1 px-4">
+	<main class="mb-8 flex-1 px-4">
 		{@render children()}
 	</main>
 	<Footer />
