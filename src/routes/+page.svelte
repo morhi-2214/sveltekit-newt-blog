@@ -6,8 +6,8 @@
 </script>
 
 <svelte:head>
-	<title>Newt・SvelteKitブログ</title>
-	<meta name="description" content="NewtとSvelteKitを利用したブログです" />
+	<title>OimOyaの技術ブログ</title>
+	<meta name="description" content="フロントエンドエンジニアのOimOyaが運営する技術ブログです。" />
 </svelte:head>
 
 <main>
