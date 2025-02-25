@@ -17,7 +17,7 @@
 			<h2 class="text-lg font-bold">{article.title}</h2>
 		</a>
 		<time class="text-sm text-gray-500" datetime={article._sys.createdAt}>
-			{formatDate(new Date(article._sys.createdAt), 'YYYY/M/D')}
+			{formatDate(new Date(article._sys.createdAt), 'YYYY.M.D')}
 		</time>
 	</div>
 </div>
