@@ -11,7 +11,7 @@ export const load: PageServerLoad = async ({ params }) => {
 		modelUid: 'article',
 		query: {
 			slug: params.slug,
-			select: ['_id', '_sys', 'title', 'slug', 'body'],
+			select: ['_id', '_sys', 'title', 'slug', 'body', 'tags'],
 			body: {
 				fmt: 'text'
 			}
