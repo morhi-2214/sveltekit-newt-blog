@@ -24,6 +24,15 @@
 					Blog
 				</a>
 				<a
+					href="/tags"
+					class="relative text-gray-500 transition-colors duration-300 after:absolute after:bottom-[-0.5rem] after:left-0 after:h-1 after:w-full after:origin-left after:rounded-full after:bg-gray-900 after:transition-opacity after:duration-300 hover:text-gray-700"
+					class:text-gray-900={page.url.pathname === '/tags'}
+					class:after:opacity-100={page.url.pathname === '/tags'}
+					class:after:opacity-0={page.url.pathname !== '/tags'}
+				>
+					Tags
+				</a>
+				<a
 					href="/about"
 					class="relative text-gray-500 transition-colors duration-300 after:absolute after:bottom-[-0.5rem] after:left-0 after:h-1 after:w-full after:origin-left after:rounded-full after:bg-gray-900 after:transition-opacity after:duration-300 hover:text-gray-700"
 					class:text-gray-900={page.url.pathname === '/about'}
