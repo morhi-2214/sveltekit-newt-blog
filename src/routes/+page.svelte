@@ -13,7 +13,7 @@
 </svelte:head>
 
 <div class="mx-auto max-w-7xl">
-	<div class="mt-4 flex flex-col gap-8 lg:flex-row">
+	<div class="flex flex-col gap-8 lg:flex-row">
 		<main class="flex-1">
 			<h1 class="text-3xl font-bold">記事一覧</h1>
 			<ul class="mt-8 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
