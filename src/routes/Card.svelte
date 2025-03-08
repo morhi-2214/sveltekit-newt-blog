@@ -30,6 +30,7 @@
 					{#each article.tags as tag}
 						<button
 							class="inline-flex items-center rounded-full bg-gray-100 px-2.5 py-0.5 text-xs text-gray-600 transition-colors duration-300 hover:bg-gray-200"
+							aria-label="{tag.name}のタグがついた記事一覧を見る"
 							onclick={(e) => {
 								e.preventDefault();
 								window.location.href = `/tags/${tag.slug}`;
