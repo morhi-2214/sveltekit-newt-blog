@@ -8,12 +8,10 @@
 
 	// TODO: 自動生成しているために目次のDOMを取得して加工している。rehype-tocの方で実装できそうであればそちらに移行する
 	onMount(() => {
-		// 目次のDOMを取得して加工
 		const tocContainer = document.querySelector('.toc-container');
 		if (tocContainer) {
 			const tocList = tocContainer.querySelector('.toc-list');
 			if (tocList) {
-				// ヘッダーとコンテンツのラッパーを作成
 				const header = document.createElement('div');
 				header.className = 'toc-header';
 				header.textContent = '目次';
@@ -21,13 +19,24 @@
 				const content = document.createElement('div');
 				content.className = 'toc-content';
 
-				// 元の目次をコンテンツに移動
 				content.appendChild(tocList);
-
-				// ヘッダーとコンテンツを追加
 				tocContainer.innerHTML = '';
 				tocContainer.appendChild(header);
 				tocContainer.appendChild(content);
+
+				// コンテンツの高さを計算して設定
+				const setContentHeight = () => {
+					const list = content.querySelector('.toc-list');
+					if (list) {
+						const height = list.getBoundingClientRect().height;
+						content.style.setProperty('--content-height', `${height}px`);
+					}
+				};
+
+				// 初期設定
+				setContentHeight();
+				// ウィンドウリサイズ時にも高さを再計算
+				window.addEventListener('resize', setContentHeight);
 
 				// クリックイベントを追加
 				header.addEventListener('click', () => {
@@ -85,7 +94,7 @@
 			</div>
 		{/if}
 	</div>
-	<div class="markdown-body mx-auto mt-8 rounded-lg bg-white px-8 py-4">
+	<div class="markdown-body mx-auto mt-4 rounded-lg bg-white px-8 py-4">
 		{@html data.article.body}
 	</div>
 </article>
