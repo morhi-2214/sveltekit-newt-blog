@@ -10,13 +10,13 @@
 	<meta name="description" content="フロントエンドエンジニアのOimOyaが運営する技術ブログです。" />
 </svelte:head>
 
-<div class="prose prose-lg max-w-none">
-	<h1>OimOyaの技術ブログへようこそ！</h1>
-	<p>
+<div class="mt-8 max-w-none">
+	<h1 class="mb-8 text-4xl font-bold">OimOyaの技術ブログへようこそ！</h1>
+	<p class="mb-8 text-lg leading-8">
 		フロントエンドエンジニアとして日々の開発で得た知見や、技術的な発見を共有していきます。
 		主にフロントエンド開発、特にReactやTypeScriptに関する記事を投稿しています。
 	</p>
-	<div class="not-prose mt-8 flex gap-4">
+	<div class="flex gap-4">
 		<a
 			href="/articles"
 			class="inline-flex items-center rounded-md bg-gray-900 px-6 py-2 text-white transition-colors duration-300 hover:bg-gray-700"
