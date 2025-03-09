@@ -2,7 +2,10 @@
 @import 'tailwindcss/components';
 @import 'tailwindcss/utilities';
 
+/* TODO: scoped もしくは @layerComponents で管理した方が良いが、なぜか効かないので暫定対応 */
+
 /* コードブロック rehype-pretty-code */
+
 .rehype-code-title {
 	@apply inline-block rounded-t-[5px] bg-[#22272e] px-5 pt-[7px] text-white;
 }
@@ -20,6 +23,7 @@
 }
 
 /* 行番号の追加 */
+
 code[data-line-numbers] {
 	counter-reset: line;
 }
@@ -31,11 +35,13 @@ code[data-line-numbers] > [data-line]::before {
 }
 
 /* コードハイライティング */
+
 [data-highlighted-line] {
 	@apply !border-red-950 !bg-red-950;
 }
 
 /* リンクカード remarkLinkCard */
+
 .remark-link-card-plus__container {
 	@apply mb-4;
 }
@@ -76,7 +82,8 @@ code[data-line-numbers] > [data-line]::before {
 	@apply !my-0 h-full w-full object-cover;
 }
 
-/* markdown-body */
+/* 本文のスタイリング */
+
 .markdown-body h1,
 .markdown-body h2,
 .markdown-body h3,
