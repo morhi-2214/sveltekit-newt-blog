@@ -110,7 +110,7 @@ code[data-line-numbers] > [data-line]::before {
 
 /* 目次のスタイリング */
 .toc-container {
-	@apply my-8 rounded-lg bg-gray-50 p-4;
+	@apply mb-8 rounded-lg bg-gray-50 p-4;
 }
 
 .toc-list {
