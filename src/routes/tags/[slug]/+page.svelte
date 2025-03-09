@@ -1,9 +1,9 @@
 <script lang="ts">
-	import type { PageData } from './$types';
+	import type { PageProps } from './$types';
 	import Card from '../../Card.svelte';
 	import Pagination from '../../Pagination.svelte';
 
-	export let data: PageData;
+	let { data }: PageProps = $props();
 </script>
 
 <svelte:head>
