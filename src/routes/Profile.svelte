@@ -29,7 +29,7 @@
 			href="/about"
 			class="block w-full rounded-md bg-gray-900 px-4 py-2 text-center text-sm font-semibold text-white transition-colors duration-300 hover:bg-gray-700"
 		>
-			もっと見てみる！
+			詳しくはこちら！
 		</a>
 	</div>
 </aside>
