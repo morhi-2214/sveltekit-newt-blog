@@ -35,7 +35,7 @@
 			</div>
 		{/if}
 	</div>
-	<div class="mx-auto mt-8 rounded-lg bg-white px-8 py-4">
+	<div class="markdown-body mx-auto mt-8 rounded-lg bg-white px-8 py-4">
 		{@html data.article.body}
 	</div>
 </article>
