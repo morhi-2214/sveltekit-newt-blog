@@ -135,6 +135,7 @@ code[data-line-numbers] > [data-line]::before {
 	@apply opacity-0 transition-opacity;
 }
 
+h1:hover .anchor-icon,
 h2:hover .anchor-icon,
 h3:hover .anchor-icon {
 	@apply opacity-100;

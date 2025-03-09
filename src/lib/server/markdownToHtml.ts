@@ -34,43 +34,21 @@ export const markdownToHtml = async (
 	if (toc) {
 		processor = processor
 			.use(rehypeSlug)
-			/** 目次を挿入 */
-			.use(rehypeAutoLinkHeadings, {
-				// 挿入の基準となる要素を設定
-				content(node) {
-					return [
-						{
-							type: 'element',
-							tagName: 'div',
-							properties: {
-								className: ['text-lg', 'font-bold']
-							},
-							children: [
-								{
-									type: 'text',
-									value: '目次'
-								}
-							]
-						},
-						{
-							type: 'element',
-							tagName: 'div',
-							properties: {
-								className: ['markdown-body', 'mb-8']
-							},
-							children: [...node.children]
-						}
-					];
-				}
-			})
 			.use(rehypeToc, {
+				headings: ['h1', 'h2', 'h3'],
 				placeholder: '[toc]',
 				customizeTOC(toc) {
+					toc.properties = {
+						...toc.properties,
+						className: ['toc-container', 'my-8', 'p-4', 'bg-gray-50', 'rounded-lg']
+					};
+
 					toc.children.unshift({
 						type: 'element',
-						tagName: 'h2',
+						tagName: 'div',
 						properties: {
-							id: 'toc-title'
+							id: 'toc-title',
+							className: ['text-xl', 'font-bold', 'mb-4']
 						},
 						children: [
 							{
@@ -79,30 +57,49 @@ export const markdownToHtml = async (
 							}
 						]
 					});
-					if (toc.properties) toc.properties['aria-labelledby'] = 'toc-title';
+
+					const list = toc.children.find((node: any) => node.tagName === 'ul');
+					if (list) {
+						list.properties = {
+							...list.properties,
+							className: ['space-y-2']
+						};
+					}
+
 					return toc;
 				}
-				// eslint-disable-next-line @typescript-eslint/no-explicit-any
-			}) as any;
+			})
+			.use(rehypeAutoLinkHeadings, {
+				behavior: 'append',
+				properties: {
+					className: ['anchor'],
+					ariaHidden: 'true'
+				},
+				content: {
+					type: 'element',
+					tagName: 'span',
+					properties: {
+						className: ['anchor-icon', 'ml-2', 'text-gray-400', 'hover:text-gray-600']
+					},
+					children: [{ type: 'text', value: '#' }]
+				}
+			});
 	}
 
 	processor = processor
-		/** コードブロックのシンタックスハイライト */
 		.use(rehypePrettyCode, {
 			transformers: [
-				/** コピーボタンを追加 */
 				transformerCopyButton({
 					visibility: 'always',
 					feedbackDuration: 3_000
 				})
 			]
 		})
-		/** MD=>HTMLへの変換 */
 		.use(html, {
 			allowDangerousHtml: true
-			// eslint-disable-next-line @typescript-eslint/no-explicit-any
-		}) as any;
+		})
+		.process(input);
 
-	const { value } = await processor.process(input);
+	const { value } = await processor;
 	return value.toString();
 };
