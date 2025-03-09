@@ -5,6 +5,9 @@ import type { PageServerLoad } from './$types';
 import { NEWT_APP_UID } from '$env/static/private';
 import { markdownToHtml } from '$lib/server/markdownToHtml';
 
+// プリレンダリングを有効化
+export const prerender = true;
+
 export const load: PageServerLoad = async ({ params }) => {
 	const article = await newtClient.getFirstContent<Article>({
 		appUid: NEWT_APP_UID,

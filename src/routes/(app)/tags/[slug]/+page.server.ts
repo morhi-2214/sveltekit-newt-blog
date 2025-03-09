@@ -4,6 +4,9 @@ import type { PageServerLoad } from './$types';
 import { NEWT_APP_UID } from '$env/static/private';
 import { error } from '@sveltejs/kit';
 
+// プリレンダリングを有効化
+export const prerender = false;
+
 const PER_PAGE = 20;
 
 export const load: PageServerLoad = async ({ params, url }) => {

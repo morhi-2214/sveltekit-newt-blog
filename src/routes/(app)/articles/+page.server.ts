@@ -3,6 +3,9 @@ import type { Article, Author } from '$lib/server/newt';
 import { NEWT_APP_UID } from '$env/static/private';
 import type { PageServerLoad } from './$types';
 
+// プリレンダリングを有効化
+export const prerender = false;
+
 const PER_PAGE = 20;
 
 export const load: PageServerLoad = async ({ url }) => {

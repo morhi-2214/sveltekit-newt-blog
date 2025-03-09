@@ -3,6 +3,9 @@ import type { Tag } from '$lib/server/newt';
 import type { PageServerLoad } from './$types';
 import { NEWT_APP_UID } from '$env/static/private';
 
+// プリレンダリングを有効化
+export const prerender = true;
+
 export const load: PageServerLoad = async () => {
 	const tagsRes = await newtClient.getContents<Tag>({
 		appUid: NEWT_APP_UID,

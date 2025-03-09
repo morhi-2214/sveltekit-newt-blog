@@ -3,6 +3,9 @@ import type { Article } from '$lib/server/newt';
 import type { PageServerLoad } from './$types';
 import { NEWT_APP_UID } from '$env/static/private';
 
+// プリレンダリングを有効化
+export const prerender = true;
+
 export const load: PageServerLoad = async () => {
 	const latestArticles = await newtClient.getContents<Article>({
 		appUid: NEWT_APP_UID,
