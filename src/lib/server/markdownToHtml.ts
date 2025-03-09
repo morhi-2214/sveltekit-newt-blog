@@ -35,38 +35,12 @@ export const markdownToHtml = async (
 		processor = processor
 			.use(rehypeSlug)
 			.use(rehypeToc, {
-				headings: ['h1', 'h2', 'h3'],
-				placeholder: '[toc]',
-				customizeTOC(toc) {
-					toc.properties = {
-						...toc.properties,
-						className: ['toc-container', 'my-8', 'p-4', 'bg-gray-50', 'rounded-lg']
-					};
-
-					toc.children.unshift({
-						type: 'element',
-						tagName: 'div',
-						properties: {
-							id: 'toc-title',
-							className: ['text-xl', 'font-bold', 'mb-4']
-						},
-						children: [
-							{
-								type: 'text',
-								value: '目次'
-							}
-						]
-					});
-
-					const list = toc.children.find((node: any) => node.tagName === 'ul');
-					if (list) {
-						list.properties = {
-							...list.properties,
-							className: ['space-y-2']
-						};
-					}
-
-					return toc;
+				headings: ['h1', 'h2'],
+				cssClasses: {
+					toc: 'toc-container',
+					link: 'toc-link',
+					listItem: 'toc-list-item',
+					list: 'toc-list'
 				}
 			})
 			.use(rehypeAutoLinkHeadings, {

@@ -113,21 +113,35 @@ code[data-line-numbers] > [data-line]::before {
 	@apply my-8 rounded-lg bg-gray-50 p-4;
 }
 
-.toc-container ul {
+.toc-list {
 	@apply list-none pl-0;
 }
 
-.toc-container li {
-	@apply my-2;
+.toc-list:first-child:before {
+	content: '目次';
+	@apply mb-2 block text-lg font-bold text-gray-900;
 }
 
-.toc-container a {
+.toc-link {
 	@apply text-gray-700 hover:text-gray-900 hover:underline;
 }
 
-/* ネストされた目次項目のスタイル */
-.toc-container ul ul {
-	@apply mt-2 pl-4;
+.toc-link-h1 {
+	@apply pl-4 text-sm font-bold;
+}
+
+.toc-link-h1::before {
+	content: '#';
+	@apply mr-1 text-gray-400;
+}
+
+.toc-link-h2 {
+	@apply pl-8 text-sm text-gray-700;
+}
+
+.toc-link-h2::before {
+	content: '##';
+	@apply mr-1 text-gray-400;
 }
 
 /* アンカーリンクのスタイル */
