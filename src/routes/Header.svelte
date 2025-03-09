@@ -15,13 +15,13 @@
 			</div>
 			<nav class="flex items-center space-x-6">
 				<a
-					href="/"
+					href="/articles"
 					class="relative text-gray-500 transition-colors duration-300 after:absolute after:bottom-[-0.5rem] after:left-0 after:h-1 after:w-full after:origin-left after:rounded-full after:bg-gray-900 after:transition-opacity after:duration-300 hover:text-gray-700"
-					class:text-gray-900={page.url.pathname === '/'}
-					class:after:opacity-100={page.url.pathname === '/'}
-					class:after:opacity-0={page.url.pathname !== '/'}
+					class:text-gray-900={page.url.pathname === '/articles'}
+					class:after:opacity-100={page.url.pathname === '/articles'}
+					class:after:opacity-0={page.url.pathname !== '/articles'}
 				>
-					Blog
+					Articles
 				</a>
 				<a
 					href="/tags"

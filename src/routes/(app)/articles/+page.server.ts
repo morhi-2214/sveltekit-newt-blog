@@ -1,7 +1,7 @@
 import { newtClient } from '$lib/server/newt';
 import type { Article, Author } from '$lib/server/newt';
-import type { PageServerLoad } from './$types';
 import { NEWT_APP_UID } from '$env/static/private';
+import type { PageServerLoad } from './$types';
 
 const PER_PAGE = 20;
 

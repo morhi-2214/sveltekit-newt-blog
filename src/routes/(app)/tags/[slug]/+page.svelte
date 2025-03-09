@@ -1,7 +1,7 @@
 <script lang="ts">
 	import type { PageProps } from './$types';
-	import Card from '../../Card.svelte';
-	import Pagination from '../../Pagination.svelte';
+	import Card from '../../../Card.svelte';
+	import Pagination from '../../../Pagination.svelte';
 
 	let { data }: PageProps = $props();
 </script>
