@@ -3,6 +3,7 @@ import remarkLinkCard from 'remark-link-card-plus';
 import markdown from 'remark-parse';
 import remark2rehype from 'remark-rehype';
 import remarkGfm from 'remark-gfm';
+import remarkBreaks from 'remark-breaks';
 import html from 'rehype-stringify';
 import rehypeCodeTitles from 'rehype-code-titles';
 import rehypePrettyCode from 'rehype-pretty-code';
@@ -26,6 +27,7 @@ export const markdownToHtml = async (
 			shortenUrl: true // リンクカード内のURLのホスト名のみを表示
 		})
 		.use(remarkGfm)
+		.use(remarkBreaks)
 		.use(remark2rehype, { allowDangerousHtml: true })
 		.use(rehypeCodeTitles);
 
