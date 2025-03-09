@@ -16,6 +16,20 @@
 		フロントエンドエンジニアとして日々の開発で得た知見や、技術的な発見を共有していきます。
 		主にフロントエンド開発、特にReactやTypeScriptに関する記事を投稿しています。
 	</p>
+	<div class="not-prose mt-8 flex gap-4">
+		<a
+			href="/articles"
+			class="inline-flex items-center rounded-md bg-gray-900 px-6 py-2 text-white transition-colors duration-300 hover:bg-gray-700"
+		>
+			記事を見る →
+		</a>
+		<a
+			href="/about"
+			class="inline-flex items-center rounded-md border border-gray-900 px-6 py-2 text-gray-900 transition-colors duration-300 hover:bg-gray-100"
+		>
+			ポートフォリオを見る →
+		</a>
+	</div>
 </div>
 
 <section class="mt-16">
