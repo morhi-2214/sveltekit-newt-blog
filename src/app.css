@@ -7,6 +7,34 @@ html {
 	scroll-behavior: smooth;
 }
 
+/* Markdownから変換されたHTMLのリスト要素のスタイル */
+ul {
+	@apply my-4 list-inside list-disc space-y-2;
+}
+
+ol {
+	@apply my-4 list-inside list-decimal space-y-2;
+}
+
+ul ul,
+ol ul,
+ul ol,
+ol ol {
+	@apply ml-6 mt-2;
+}
+
+li {
+	@apply leading-relaxed text-gray-700;
+}
+
+li > p {
+	@apply inline;
+}
+
+li::marker {
+	@apply text-gray-500;
+}
+
 /* TODO: scoped もしくは @layerComponents で管理した方が良いが、なぜか効かないので暫定対応 */
 
 /* 本文のスタイリング */
