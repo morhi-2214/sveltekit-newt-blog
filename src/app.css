@@ -12,30 +12,30 @@ html {
 }
 
 /* Markdownから変換されたHTMLのリスト要素のスタイル */
-.markdown-body ul {
+.markdown-body ul:not(.toc-list) {
 	@apply my-4 list-inside list-disc space-y-2;
 }
 
-.markdown-body ol {
+.markdown-body ol:not(.toc-list) {
 	@apply my-4 list-inside list-decimal space-y-2;
 }
 
-.markdown-body ul ul,
-.markdown-body ol ul,
-.markdown-body ul ol,
-.markdown-body ol ol {
+.markdown-body ul:not(.toc-list) ul,
+.markdown-body ol:not(.toc-list) ul,
+.markdown-body ul:not(.toc-list) ol,
+.markdown-body ol:not(.toc-list) ol {
 	@apply ml-6 mt-2;
 }
 
-.markdown-body li {
+.markdown-body li:not(.toc-list li) {
 	@apply leading-relaxed text-gray-700;
 }
 
-.markdown-body li > p {
+.markdown-body li:not(.toc-list li) > p {
 	@apply inline;
 }
 
-.markdown-body li::marker {
+.markdown-body li:not(.toc-list li)::marker {
 	@apply text-gray-500;
 }
 
@@ -173,7 +173,11 @@ code[data-line-numbers] > [data-line]::before {
 }
 
 .toc-list {
-	@apply list-none pl-0;
+	@apply list-none space-y-2 p-0;
+}
+
+.toc-list li {
+	@apply leading-relaxed;
 }
 
 .toc-link {
