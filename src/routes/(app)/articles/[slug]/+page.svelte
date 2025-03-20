@@ -69,11 +69,22 @@
 	<meta name="description" content="投稿詳細ページです" />
 </svelte:head>
 
-<div class="mx-auto my-5">
+<div class="mx-auto my-5 max-w-3xl">
 	<a href="/" class="flex items-center text-opacity-80 hover:underline"> ← 記事一覧に戻る</a>
 </div>
 
-<article>
+<article class="mx-auto max-w-3xl">
+	<!-- サムネイル画像を追加 -->
+	{#if data.article.coverImage}
+		<div class="relative mx-auto mb-12 aspect-video max-w-[400px] overflow-hidden rounded-lg">
+			<img
+				src={data.article.coverImage.src}
+				alt={data.article.coverImage.altText}
+				class="h-full w-full object-cover"
+			/>
+		</div>
+	{/if}
+
 	<div class="text-center">
 		<h1 class="mt-4 text-2xl font-bold md:text-4xl">
 			{data.article.title}
