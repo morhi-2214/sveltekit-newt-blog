@@ -7,31 +7,35 @@ html {
 	scroll-behavior: smooth;
 }
 
+.markdown-body p {
+	@apply leading-8;
+}
+
 /* Markdownから変換されたHTMLのリスト要素のスタイル */
-ul {
+.markdown-body ul {
 	@apply my-4 list-inside list-disc space-y-2;
 }
 
-ol {
+.markdown-body ol {
 	@apply my-4 list-inside list-decimal space-y-2;
 }
 
-ul ul,
-ol ul,
-ul ol,
-ol ol {
+.markdown-body ul ul,
+.markdown-body ol ul,
+.markdown-body ul ol,
+.markdown-body ol ol {
 	@apply ml-6 mt-2;
 }
 
-li {
+.markdown-body li {
 	@apply leading-relaxed text-gray-700;
 }
 
-li > p {
+.markdown-body li > p {
 	@apply inline;
 }
 
-li::marker {
+.markdown-body li::marker {
 	@apply text-gray-500;
 }
 
@@ -40,11 +44,11 @@ li::marker {
 /* 本文のスタイリング */
 
 .markdown-body h1 {
-	@apply my-6 text-2xl font-bold;
+	@apply mb-6 mt-8 border-b-2 border-gray-300 pb-2 pl-1 text-2xl font-bold;
 }
 
 .markdown-body h2 {
-	@apply my-5 text-xl font-bold;
+	@apply mb-5 mt-7 border-b border-gray-200 pb-2 pl-1 text-xl font-bold;
 }
 
 .markdown-body h3 {
