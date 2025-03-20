@@ -73,7 +73,7 @@
 	<a href="/" class="flex items-center text-opacity-80 hover:underline"> ← 記事一覧に戻る</a>
 </div>
 
-<article class="mx-auto p-4">
+<article>
 	<div class="text-center">
 		<h1 class="mt-4 text-2xl font-bold md:text-4xl">
 			{data.article.title}
@@ -94,7 +94,7 @@
 			</div>
 		{/if}
 	</div>
-	<div class="markdown-body mx-auto mt-4 rounded-lg bg-white px-8 py-4">
+	<div class="markdown-body mx-auto mt-4 rounded-lg bg-white p-6">
 		{@html data.article.body}
 	</div>
 </article>
