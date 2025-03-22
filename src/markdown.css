@@ -1,14 +1,34 @@
+/* TODO: scoped もしくは @layerComponents で管理した方が良いが、なぜか効かないので暫定対応 */
+
+/* 本文のスタイリング */
+
+.markdown-body h1 {
+	@apply mb-6 mt-10 border-b-2 border-gray-300 pb-2 pl-1 text-2xl font-bold;
+}
+
+.markdown-body h2 {
+	@apply mb-5 mt-10 border-b border-gray-200 pb-2 pl-1 text-xl font-bold;
+}
+
+.markdown-body h3 {
+	@apply mb-5 mt-10 text-xl font-bold;
+}
+
+.markdown-body h4 {
+	@apply my-4 text-base font-bold;
+}
+
 .markdown-body p {
-	@apply leading-8;
+	@apply my-4 leading-8;
 }
 
 /* Markdownから変換されたHTMLのリスト要素のスタイル */
 .markdown-body ul:not(.toc-list) {
-	@apply my-4 list-inside list-disc space-y-2;
+	@apply my-6 list-inside list-disc space-y-2;
 }
 
 .markdown-body ol:not(.toc-list) {
-	@apply my-4 list-inside list-decimal space-y-2;
+	@apply my-6 list-inside list-decimal space-y-2;
 }
 
 .markdown-body ul:not(.toc-list) ul,
@@ -28,30 +48,6 @@
 
 .markdown-body li:not(.toc-list li)::marker {
 	@apply text-gray-500;
-}
-
-/* TODO: scoped もしくは @layerComponents で管理した方が良いが、なぜか効かないので暫定対応 */
-
-/* 本文のスタイリング */
-
-.markdown-body h1 {
-	@apply mb-6 mt-8 border-b-2 border-gray-300 pb-2 pl-1 text-2xl font-bold;
-}
-
-.markdown-body h2 {
-	@apply mb-5 mt-7 border-b border-gray-200 pb-2 pl-1 text-xl font-bold;
-}
-
-.markdown-body h3 {
-	@apply my-4 text-lg font-bold;
-}
-
-.markdown-body h4 {
-	@apply my-4 text-base font-bold;
-}
-
-.markdown-body p {
-	@apply my-4;
 }
 
 /* インラインコードのスタイリング */

@@ -86,10 +86,10 @@
 	{/if}
 
 	<div class="text-center">
-		<h1 class="mt-4 text-2xl font-bold md:text-4xl">
+		<h1 class="mb-6 mt-4 text-2xl font-bold md:text-4xl">
 			{data.article.title}
 		</h1>
-		<time class="mt-2 block text-sm text-gray-500" datetime={data.article._sys.createdAt}>
+		<time class="mb-4 block text-sm text-gray-500" datetime={data.article._sys.createdAt}>
 			{formatDate(new Date(data.article._sys.createdAt), 'YYYY.M.D')}
 		</time>
 		{#if data.article.tags?.length > 0}
