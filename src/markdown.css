@@ -50,6 +50,15 @@
 	@apply text-gray-500;
 }
 
+/* blockquoteのスタイリング */
+.markdown-body blockquote {
+	@apply my-6 border-l-4 border-gray-300 bg-gray-50 py-4 pl-6 pr-4 italic text-gray-700;
+}
+
+.markdown-body blockquote p {
+	@apply m-0;
+}
+
 /* インラインコードのスタイリング */
 .markdown-body p code:not([data-language]) {
 	@apply mx-1 rounded bg-gray-100 px-2 py-1 font-mono text-sm text-gray-800;
